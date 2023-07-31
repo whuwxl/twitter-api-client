@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "twitter-api-client"
+version = "0.10.11"
+description = "Implementation of Twitter's v1, v2, and GraphQL APIs."
+authors = ["Trevor Hobenshield <trevorhobenshield@gmail.com>"]
+license = "MIT"
+readme = "readme.md"
+packages = [{ include = "twitter" }]
+
+[tool.poetry.dependencies]
+python = "^3.10.10"
+aiofiles = "^23.1.0"
+httpx = "^0.24.1"
+nest-asyncio = "^1.5.7"
+orjson = "^3.9.2"
+websockets = "^11.0.3"
+tqdm = "^4.65.0"
+uvloop = "^0.17.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+mypy = "^1.4.1"
+ruff = "^0.0.280"
+types-aiofiles = "^23.1.0.5"
+
+[tool.ruff]
+select = [
+    "E", # pycodestyle
+    "F", # pyflakes
+    "I", # isort
+]
+
+[tool.mypy]
+ignore_missing_imports = "True"
+disallow_untyped_defs = "True"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
