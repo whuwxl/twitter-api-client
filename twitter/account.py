@@ -655,7 +655,7 @@ class Account:
         )
         return r.json()
 
-    def dm_history(self, conversation_ids: list[str] = None) -> list[dict]:
+    async def dm_history(self, conversation_ids: list[str] = None) -> list[dict]:
         """
         Get DM history.
 
@@ -698,7 +698,7 @@ class Account:
             inbox = self.dm_inbox()
             ids = list(inbox['inbox_initial_state']['conversations'])
 
-        return asyncio.run(process(ids))
+        return await process(ids)
 
     def dm_delete(self, *, conversation_id: str = None, message_id: str = None) -> dict:
         """
